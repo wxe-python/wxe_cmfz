@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>首页</title>
+<!--   <link rel="icon" href="{% static 'img/arrow-up.png' %}" type="image/x-icon">-->
+    <link rel="stylesheet" href="{% static 'boot/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'boot/css/back.css' %}">
+    <link rel="stylesheet" href="{% static 'jqgrid/css/trirand/ui.jqgrid-bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'jqgrid/css/jquery-ui.css' %}">
+    <script src="{% static 'boot/js/jquery-2.2.1.min.js' %}"></script>
+    <script src="{% static 'boot/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'jqgrid/js/trirand/src/jquery.jqGrid.js' %}"></script>
+    <script src="{% static 'jqgrid/js/trirand/i18n/grid.locale-cn.js' %}"></script>
+    <script src="{% static 'boot/js/ajaxfileupload.js' %}"></script>
+</head>
+<body>
+
+<!--顶部导航-->
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!--导航标题-->
+        <div class="navbar-header">
+            <a href="#" class="navbar-brand">持名法州管理系统</a>
+        </div>
+        <!--导航内容-->
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a>欢迎:</a>
+            </li>
+            <li>
+                <a href="#">退出登录 <span class="glyphicon glyphicon-log-out"></span></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<!--栅格系统-->
+<div class="container-fluid">
+    <div class="row">
+        <!--左边-->
+        <div class="col-xs-2">
+            <!--手风琴-->
+            <div class="panel-group" id="accordion">
+                <!--用户菜单（折叠）-->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <a href="#" data-toggle="collapse" data-parent="#accordion"><h4>用户管理</h4></a>
+                        </div>
+                    </div>
+                    <div id="aa" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <!-- 下拉菜单 -->
+                            <ul class="nav nav-pills nav-stacked">
+                                <li>
+                                    <a href="#"
+                                       style="font-weight: bold">用户列表</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                       style="font-weight: bold">用户注册趋势图</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                       style="font-weight: bold">用户分布图</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!--文章管理-->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <a href="#" data-toggle="collapse" data-parent="#accordion"><h4>文章管理</h4></a>
+                        </div>
+                    </div>
+                    <div id="dds" class="panel-collapse collapse ">
+                        <div class="panel-body">
+                            <ul class="nav nav-pills nav-stacked">
+                                <li>
+                                    <a href="#"
+                                       style="font-weight: bold">文章列表</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--专辑管理-->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <a href="#" data-toggle="collapse" data-parent="#accordion"><h4>专辑管理</h4></a>
+                        </div>
+                    </div>
+                    <div id="dd" class="panel-collapse collapse ">
+                        <div class="panel-body">
+                            <ul class="nav nav-pills nav-stacked">
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--轮播图管理-->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <a href="#" data-toggle="collapse" data-parent="#accordion"><h4>轮播图管理</h4></a>
+                        </div>
+                    </div>
+                    <div id="cc" class="panel-collapse collapse ">
+                        <div class="panel-body">
+                            <!--通过load方法加载轮播图管理的页面-->
+                            <ul class="nav nav-pills nav-stacked">
+                                <li>
+                                    <a href="#"
+                                       style="font-weight: bold">轮播图列表</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--右边-->
+        <div class="col-xs-10" id="centerLayout">
+            <!--巨幕-->
+            <div class="jumbotron">
+                <h2 style="color:#898080;">欢迎来到持名法州后台管理系统</h2>
+            </div>
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img src="{% static 'img/shouye.jpg' %}" alt="..." style="height: 60%;width: auto">
+                        <div class="carousel-caption">
+                            ....
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="{% static 'img/1.jpg' %}" alt="..." style="height: 60%;width: auto">
+                        <div class="carousel-caption">
+                            ....
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="{% static 'img/2.jpg' %}" alt="..." style="height: 60%;width: auto">
+                        <div class="carousel-caption">
+                            ....
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="{% static 'img/3.jpg' %}" alt="..." style="height: 60%;width: auto">
+                        <div class="carousel-caption">
+                            ....
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+<br/>
+
+
+<div class="panel-footer">
+    <div class="panel-title">
+        <h5 style="text-align: center">@百知教育 baizhi@zparkhr.com.cn</h5>
+    </div>
+</div>
+</body>
+</html>
