@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>商品后台管理系统</title>
+    <link rel="stylesheet" href="{% static 'boot/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'jqgrid/css/trirand/ui.jqgrid-bootstrap.css' %}">
+    <script src="{% static 'boot/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'boot/js/bootstrap.min.js' %}"></script>
+
+    <!--发送按钮倒计时代码-->
+    <script type="text/javascript">
+
+        //点击发送验证码后60秒倒计时
+        var countdown = 60;
+        function settime(obj) {
+            if (countdown == 0) {
+                obj.removeAttribute("disabled");
+                obj.value = "免费获取验证码";
+                countdown = 60;
+                return;
+            } else {
+                obj.setAttribute("disabled", true);
+                obj.value = "重新发送(" + countdown + ")";
+                countdown--;
+            }
+            setTimeout(function () {
+                    settime(obj)
+                }
+                , 1000)
+        }
+
+        //输入手机号发送验证码
+        $(function () {
+            $("#forcode").click(function () {
+                $.ajax({
+                    type: 'post',
+                    data: {mobile: $("#mobile").val()},
+                    url: "/home/get_code/",
+                    success: function (data) {
+                        if (data === "手机号格式不正确"){
+                            alert('手机号输入有误，请输入正确是的号码！')
+                        }else if (data ==="频繁发送"){
+                            alert("操作过于频繁，请稍后再试！")
+                        }
+                    }
+                });
+            });
+
+            // 发送登陆请求
+            $("#loginButtonId").click(function () {
+                $.ajax({
+                    url: "/home/check_user/",
+                    datatype: 'json',
+                    type: 'get',
+                    data: $("#loginForm").serialize(),
+                    success: function (data) {
+                        if (data === "输入错误") {
+                            alert("验证码输入错误,请重新输入")
+                        } else if (data === "成功") {
+                            window.location.href = '/home/home/'
+                        }
+                    }
+                });
+            });
+        });
+
+
+    </script>
+
+</head>
+
+
+<body>
+
+<!--手机号码输入框代码-->
+<div class="container">
+    <div class="form-group">
+        <div class="col-lg-10">
+            <form id="loginForm" role="form" action="" method="post" class="form-horizontal">
+
+                <label for="mobile" class="">手机号码:</label>
+                <div class="input-group m-bot15">
+                    <input type="text" class="form-control" required id="mobile" name="mobile" placeholder="请输入正确的手机号码：">
+                    <span class="input-group-btn">
+                         <input type="button" id="forcode" onclick="settime(this)" value="免费获取验证码"
+                                class="btn btn-success">
+                        </span>
+                </div>
+                <span id="msgDiv"></span>
+                <p class="help-block">请填写绑定手机号</p>
+                <label for="basic-url" class="">用户名</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="basic-url" minlength="5" name="name" placeholder="可以不用填！">
+                    <span class="input-group-addon">没啥用</span>
+                </div>
+                <label for="basic-url" class="">验证码：</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="basic-urll" required name="code">
+                </div>
+                <p class="help-block"></p>
+                <div class="input-group">
+                    <input class="btn btn-success" type="button" id="loginButtonId" value="登录">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
