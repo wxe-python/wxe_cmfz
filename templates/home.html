@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>首页</title>
-<!--   <link rel="icon" href="{% static 'img/arrow-up.png' %}" type="image/x-icon">-->
+{#    <link rel="icon" href="{% static 'img/arrow-up.png' %}" type="image/x-icon">#}
     <link rel="stylesheet" href="{% static 'boot/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'boot/css/back.css' %}">
     <link rel="stylesheet" href="{% static 'jqgrid/css/trirand/ui.jqgrid-bootstrap.css' %}">
@@ -15,6 +15,9 @@
     <script src="{% static 'jqgrid/js/trirand/src/jquery.jqGrid.js' %}"></script>
     <script src="{% static 'jqgrid/js/trirand/i18n/grid.locale-cn.js' %}"></script>
     <script src="{% static 'boot/js/ajaxfileupload.js' %}"></script>
+    <script src="{% static '/js/echarts.min.js' %}"></script>
+    <script type="text/javascript" src="{% static '/js/china.js' %}"></script>
+{#    <script type="text/javascript" src="{% static '/js/jquery.min.js' %}"></script>#}
 </head>
 <body>
 
@@ -57,15 +60,15 @@
                             <!-- 下拉菜单 -->
                             <ul class="nav nav-pills nav-stacked">
                                 <li>
-                                    <a href="#"
+                                    <a href="javascript:$('#centerLayout').load('{% static 'static_html/user.html' %}')"
                                        style="font-weight: bold">用户列表</a>
                                 </li>
                                 <li>
-                                    <a href="#"
+                                    <a href="javascript:$('#centerLayout').load('{% static 'static_html/echarts.html' %}')"
                                        style="font-weight: bold">用户注册趋势图</a>
                                 </li>
                                 <li>
-                                    <a href="#"
+                                    <a href="javascript:$('#centerLayout').load('{% static 'static_html/map.html' %}')"
                                        style="font-weight: bold">用户分布图</a>
                                 </li>
                             </ul>

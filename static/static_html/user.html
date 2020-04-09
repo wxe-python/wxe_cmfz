@@ -1,0 +1,92 @@
+<script>
+    $('#userTable').jqGrid('clearGridData');
+    $('#userTable').jqGrid({
+        url: "/user/html/",
+        datatype: "json",
+        autowidth: true,
+        pager: "#userPagerNew",
+        height:"300",
+        viewrecords: true,
+        rownumbers: true,
+        rowNum: 6,
+        rowList: [5,10,15],
+        styleUI: "Bootstrap",
+        editurl: "/user/edit/",
+        cellEdit: true,
+        colNames: ["ID", "用户名","性别","手机号", "密码", "头像", "地区","详细地址","个人签名","注册时间","状态","操作"],
+        colModel: [
+            {name: "id", align: "center"},
+            {name: "username", align: "center"},
+            {name: "sex", align: "center"},
+            {name: "phone", align: "center",fixed: true, width: "100",},
+            {name: "password", align: "center",fixed: true, width: "100",},
+            {
+                name: "image",
+                align: "center",
+                formatter: function (cellvalue, options, rowObject) {
+                    return '<img style="width: 50px;height: 30px" src="/static/img/' + cellvalue + '" alt="">';
+                    }
+            },
+            {name: "address", align: "center"},
+            {name: "address_item", align: "center",fixed: true, width: "100"},
+            {name: "signature", align: "center",fixed: true, width: "100"},
+            {name: "regist_time", align: "center",fixed: true, width: "100"},
+            {name: "status", align: "center",editable:true,edittype:'select',editoptions: {
+                value: '0:冻结;1:正常'
+                }},
+            {
+                name: "option",
+                align: "center",
+                fixed: true,
+                width: "150",
+                //resizable: true,
+                formatter: function (cellvalue, options, rowObject) {
+                    console.log(rowObject.id);
+                    var content = "<button onclick='edit(" + rowObject.id + ")' class=\"btn btn-warning\" id=\"edit\"><span class=\"glyphicon glyphicon-edit\"></span> 修改</button>"
+                        + "<button onclick='del(" + rowObject.id + ")' class=\"btn btn-danger\" id=\"del\"><span class=\"glyphicon glyphicon-edit\"></span>删除</button>";
+                    return content;
+                }
+            },
+        ],
+    }).jqGrid('navGrid', '#userPagerNew', {edit: false,add:false,del:false,reload:false, refresh:false,search: false});
+
+
+
+    //点击表格内修改按钮
+    function edit(id) {
+        jQuery("#userTable").jqGrid('editGridRow', id, {
+          reloadAfterSubmit : true,
+          closeAfterEdit: true
+        });
+    }
+
+    //点击表格内删除按钮
+    function del(id) {
+        jQuery("#userTable").jqGrid('delGridRow', id, {
+            reloadAfterSubmit: true,
+            closeAfterEdit: true
+        });
+    }
+
+
+</script>
+
+
+<div class="page-header">
+    <h2>用户管理</h2>
+</div>
+<ul class="nav nav-tabs ">
+    <li class="active"><a href="#"><b>用户信息</b></a></li>
+</ul>
+
+<div class="panel panel-default" style="padding: 40px">
+    <!-- jqgrid表格的容器 -->
+    <table id="userTable"></table>
+    <div class="alert alert-success" role="alert" id="addBannerMsg" style="display: none">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+        <strong id="msgShow"></strong>
+
+    </div>
+    <div id="userPagerNew" style="width: auto;height: 50px"></div>
+</div>

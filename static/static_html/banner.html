@@ -8,17 +8,19 @@
             styleUI: "Bootstrap",
             autowidth: true,
             viewrecords: true,
+            rownumbers: true,
             pager: "#bannerPagerNew",
             rowNum: 2,
             rowList: [2, 5, 10],
-            cellEdit: true,
             editurl: "/banner/edit/",
+            cellEdit: true,
             colNames: ["ID", "描述", "上传时间", "是否显示", "图片", "操作"],
             colModel: [
                 {name: "id"},
                 {name: "title",editable: true},
                 {name: "create_time"},
-                {name: "status",editable: true, edittype: 'select'},
+                {name: "status",editable: true, edittype: 'select',editoptions: {
+                value: '0:不显示;1:显示'}},
                 {       // 获取图片保存在数据库的路径
                     name: "pic", formatter: function (cellvalue, options, rowObject) {
                         var img = "/static/img/"+ cellvalue;
@@ -36,14 +38,15 @@
     //修改
     function edit(id) {
         $("#bannerTable").jqGrid('editGridRow', id, {
-            height : 300,
-            reloadAfterSubmit : true
+            reloadAfterSubmit : true,
+            closeAfterEdit: true
           })
     }
     // 删除
     function del(id) {
          jQuery("#bannerTable").jqGrid('delGridRow', id, {
-            reloadAfterSubmit : true
+             reloadAfterSubmit : true,
+             closeAfterEdit: true
           });
     }
 
