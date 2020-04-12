@@ -18,13 +18,28 @@ def my_default(e):
         h.update(e.password.encode())
         password1 = h.hexdigest()
         if e.status == "1":
-            return {'id': e.id, "username": e.username, "sex": e.sex, "phone": e.phone, "password": password1,
-                    "image": str(e.image), "address": e.address, "address_item": e.address_item,
-                    "signature": e.signature, "regist_time": str(e.regist_time),
+            return {'id': e.id,
+                    "username": e.username,
+                    "sex": e.sex,
+                    "phone": e.phone,
+                    "password": password1,
+                    "image": str(e.image),
+                    "address": e.address,
+                    "address_item": e.address_item,
+                    "signature": e.signature,
+                    "regist_time": str(e.regist_time),
                     "status": "正常"}
-        return {'id': e.id, "username": e.username, "sex": e.sex, "phone": e.phone, "password": password1,
-                "image": str(e.image), "address": e.address, "address_item": e.address_item, "signature": e.signature,
-                "status": "冻结", "regist_time": str(e.regist_time), }
+        return {'id': e.id,
+                "username": e.username,
+                "sex": e.sex,
+                "phone": e.phone,
+                "password": password1,
+                "image": str(e.image),
+                "address": e.address,
+                "address_item": e.address_item,
+                "signature": e.signature,
+                "regist_time": str(e.regist_time),
+                "status": "冻结"}
 
 
 def html(request):

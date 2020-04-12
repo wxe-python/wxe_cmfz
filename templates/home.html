@@ -17,6 +17,8 @@
     <script src="{% static 'boot/js/ajaxfileupload.js' %}"></script>
     <script src="{% static '/js/echarts.min.js' %}"></script>
     <script type="text/javascript" src="{% static '/js/china.js' %}"></script>
+    <script src="{% static 'kindeditor/kindeditor-all-min.js' %}"></script>
+    <script src="{% static 'kindeditor/lang/zh-CN.js' %}"></script>
 {#    <script type="text/javascript" src="{% static '/js/jquery.min.js' %}"></script>#}
 </head>
 <body>
@@ -87,7 +89,7 @@
                         <div class="panel-body">
                             <ul class="nav nav-pills nav-stacked">
                                 <li>
-                                    <a href="#"
+                                    <a href="javascript:$('#centerLayout').load('{% static 'static_html/kindeditor.html' %}')"
                                        style="font-weight: bold">文章列表</a>
                                 </li>
                             </ul>

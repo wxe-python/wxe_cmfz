@@ -42,7 +42,7 @@ def save(request):
         print(title, status, pic)
         if not pic:
             return HttpResponse("图片不能为空")
-        with transaction.atomic():   # 事务回滚
+        with transaction.atomic():  # 事务回滚
             Carousel.objects.create(title=title, status=status, pic=pic)
         return HttpResponse('成功保存')
     except:
@@ -67,4 +67,3 @@ def edit(request):
         Carousel.objects.get(pk=id).delete()
 
     return HttpResponse("success")
-

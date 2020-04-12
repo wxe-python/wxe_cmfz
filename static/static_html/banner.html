@@ -16,20 +16,26 @@
             cellEdit: true,
             colNames: ["ID", "描述", "上传时间", "是否显示", "图片", "操作"],
             colModel: [
-                {name: "id"},
-                {name: "title",editable: true},
-                {name: "create_time"},
-                {name: "status",editable: true, edittype: 'select',editoptions: {
-                value: '0:不显示;1:显示'}},
+                {name: "id", align: "center"},
+                {name: "title", editable: true, align: "center"},
+                {name: "create_time", align: "center"},
+                {
+                    name: "status", editable: true, align: "center", edittype: 'select', editoptions: {
+                        value: '0:不显示;1:显示'
+                    }
+                },
                 {       // 获取图片保存在数据库的路径
-                    name: "pic", formatter: function (cellvalue, options, rowObject) {
-                        var img = "/static/img/"+ cellvalue;
-                        return '<img style=\'height:50px;width: 90px\' src='+ img + ' class="one">'
-                    }},
-                {name:'operation',formatter:function (cellvalue, options, rowObject) {
-                        return  '<button class="btn btn-primary" onclick=edit(' + rowObject.id + ')>修改</button> '+
+                    name: "pic", align: "center", formatter: function (cellvalue, options, rowObject) {
+                        var img = "/static/img/" + cellvalue;
+                        return '<img style=\'height:50px;width: 90px\' src=' + img + ' class="one">'
+                    }
+                },
+                {
+                    name: 'operation', align: "center", formatter: function (cellvalue, options, rowObject) {
+                        return '<button class="btn btn-primary" onclick=edit(' + rowObject.id + ')>修改</button> ' +
                             '<button class="btn btn-danger" onclick=del(' + rowObject.id + ')>删除</button>'
-          }},
+                    }
+                },
             ],
 
         });
@@ -38,53 +44,53 @@
     //修改
     function edit(id) {
         $("#bannerTable").jqGrid('editGridRow', id, {
-            reloadAfterSubmit : true,
+            reloadAfterSubmit: true,
             closeAfterEdit: true
-          })
+        })
     }
+
     // 删除
     function del(id) {
-         jQuery("#bannerTable").jqGrid('delGridRow', id, {
-             reloadAfterSubmit : true,
-             closeAfterEdit: true
-          });
+        jQuery("#bannerTable").jqGrid('delGridRow', id, {
+            reloadAfterSubmit: true,
+            closeAfterEdit: true
+        });
     }
 
 
+    // 点击模态框的保存按钮 向后台提交当前的表单信息 保存轮播图
+    $("#save").click(function () {
+        // 通过formdata获取文件的值
+        var title = $("#upload_title").val();
+        var status = $("#upload_status").val();
+        var pic = $("#upload_pic")[0].files[0];
 
-        // 点击模态框的保存按钮 向后台提交当前的表单信息 保存轮播图
-        $("#save").click(function () {
-            // 通过formdata获取文件的值
-            var title = $("#upload_title").val();
-            var status = $("#upload_status").val();
-            var pic = $("#upload_pic")[0].files[0];
+        var formData = new FormData();
+        formData.append("title", title);
+        formData.append("status", status);
+        formData.append("pic", pic);
 
-            var formData = new FormData();
-            formData.append("title", title);
-            formData.append("status", status);
-            formData.append("pic", pic);
-
-            $.ajax({
-                url: "/banner/save/",
-                datatype: "json",
-                type: "post",
-                data: formData,
-                processData: false,     // 使数据不做处理
-                contentType: false,     // 不设置请求头
-                success: function (data) {
-                    if (data === '成功保存') {
-                        // 根据保存的返回值进行处理
-                        $("#bannerTable").modal('hide');
-                         // 刷新jqgrid表格
-                        $('#bannerTable').trigger("reloadGrid");
-                    } else if (data === '保存失败') {
-                        alert('保存失败')
-                    } else if (data === "图片不能为空") {
-                        alert("图片不能为空")
-                    }
+        $.ajax({
+            url: "/banner/save/",
+            datatype: "json",
+            type: "post",
+            data: formData,
+            processData: false,     // 使数据不做处理
+            contentType: false,     // 不设置请求头
+            success: function (data) {
+                if (data === '成功保存') {
+                    // 根据保存的返回值进行处理
+                    $("#bannerTable").modal('hide');
+                    // 刷新jqgrid表格
+                    $('#bannerTable').trigger("reloadGrid");
+                } else if (data === '保存失败') {
+                    alert('保存失败')
+                } else if (data === "图片不能为空") {
+                    alert("图片不能为空")
                 }
-            });
+            }
         });
+    });
 
 
 </script>
@@ -113,7 +119,6 @@
     <button class="btn btn-warning" id="edit"><span class="glyphicon glyphicon-edit"></span> 修改</button>
     <button class="btn btn-danger" id="del">删除</button>
 </div>
-
 
 
 <body>

@@ -26,8 +26,27 @@ class User(models.Model):  # 用户表
     address = models.CharField(max_length=20, blank=True, null=True)  # 地址
     address_item = models.CharField(max_length=50, blank=True, null=True)  # 详细地址
     signature = models.CharField(max_length=20, blank=True, null=True)  # 个人签名
-    regist_time = models.DateField(blank=True, null=True)  # 注册时间
+    regist_time = models.DateField(auto_now_add=True)  # 注册时间
     status = models.CharField(max_length=20, blank=True, null=True)  # 状态
 
     class Meta:
         db_table = 't_user'
+
+
+class Article(models.Model):
+    id = models.IntegerField(primary_key=True)   # 编号
+    title = models.CharField(max_length=255, blank=True, null=True)   # 标题
+    content = models.TextField(blank=True, null=True)      # 内容
+    create_date = models.DateField(auto_now_add=True)   # 上传时间
+    publish_date = models.DateField(auto_now_add=True)   # 发布时间
+    status = models.CharField(max_length=20, blank=True, null=True)  # 状态
+
+    class Meta:
+        db_table = 'article'
+
+
+class Pic(models.Model):
+    img = models.ImageField(upload_to='static/img')
+
+    class Meta:
+        db_table = 't_pic'
