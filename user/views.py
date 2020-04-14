@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from home.models import User
 import json
 from django.core.paginator import Paginator
@@ -46,12 +45,16 @@ def html(request):
     row = request.GET.get('rows')
     pagenum = request.GET.get('page', 1)
     pgtor = Paginator(User.objects.all(), per_page=row)
-    pg = pgtor.page(pagenum)
+    page_num = pgtor.num_pages  # 获取总页面数
+    # 判断获取的当前页数是否大于总页数，如果大于总页数则将总页数赋值给当前页数
+    if int(pagenum) > page_num:
+        pagenum = page_num
+    page_obj = Paginator(User.objects.all(), row).page(pagenum).object_list
     data = {
         'page': pagenum,
         'total': pgtor.num_pages,
         'records': pgtor.count,
-        'rows': list(pg)
+        'rows': list(page_obj)
     }
     json_str = json.dumps(data, default=my_default)
     return HttpResponse(json_str)

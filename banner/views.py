@@ -1,8 +1,7 @@
 import json
-
 from django.core.paginator import Paginator
 from django.db import transaction
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
 from home.models import Carousel
@@ -22,12 +21,16 @@ def html(request):
     row = request.GET.get('rows')
     page = request.GET.get('page', 1)
     pgtor = Paginator(Carousel.objects.all(), per_page=row)
-    pg = pgtor.page(page)
+    page_num = pgtor.num_pages  # 获取总页面数
+    # 判断获取的当前页数是否大于总页数，如果大于总页数则将总页数赋值给当前页数
+    if int(page) > page_num:
+        page = page_num
+    page_obj = pgtor.page(page).object_list
     data = {
         'page': page,
         'total': pgtor.num_pages,
         'records': pgtor.count,
-        'rows': list(pg)
+        'rows': list(page_obj)
     }
     json_str = json.dumps(data, default=my_default)
     return HttpResponse(json_str)

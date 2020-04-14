@@ -59,25 +59,18 @@
                     </div>
                     <div id="aa" class="panel-collapse collapse">
                         <div class="panel-body">
-                            <!-- 下拉菜单 -->
-                            <ul class="nav nav-pills nav-stacked">
-                                <li>
-                                    <a href="javascript:$('#centerLayout').load('{% static 'static_html/user.html' %}')"
-                                       style="font-weight: bold">用户列表</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:$('#centerLayout').load('{% static 'static_html/echarts.html' %}')"
-                                       style="font-weight: bold">用户注册趋势图</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:$('#centerLayout').load('{% static 'static_html/map.html' %}')"
-                                       style="font-weight: bold">用户分布图</a>
-                                </li>
-                            </ul>
+                            {% for url in request.session.menu_list %}
+                                {% if url.category == "user" %}
+                                    <ul class="nav nav-pills nav-stacked">
+                                        <li>
+                                            <a href="Javascript:$('#centerLayout').load('{% static  url.static_html %}')">{{ url.title }}</a>
+                                        </li>
+                                    </ul>
+                                {% endif %}
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
-
                 <!--文章管理-->
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -87,12 +80,15 @@
                     </div>
                     <div id="dds" class="panel-collapse collapse ">
                         <div class="panel-body">
-                            <ul class="nav nav-pills nav-stacked">
-                                <li>
-                                    <a href="javascript:$('#centerLayout').load('{% static 'static_html/kindeditor.html' %}')"
-                                       style="font-weight: bold">文章列表</a>
-                                </li>
-                            </ul>
+                            {% for url in request.session.menu_list %}
+                                {% if url.category == "article" %}
+                                    <ul class="nav nav-pills nav-stacked">
+                                        <li>
+                                            <a href="Javascript:$('#centerLayout').load('{% static  url.static_html %}')">{{ url.title }}</a>
+                                        </li>
+                                    </ul>
+                                {% endif %}
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -105,9 +101,15 @@
                     </div>
                     <div id="dd" class="panel-collapse collapse ">
                         <div class="panel-body">
-                            <ul class="nav nav-pills nav-stacked">
-
-                            </ul>
+                            {% for url in request.session.menu_list %}
+                                {% if url.category == "album" %}
+                                    <ul class="nav nav-pills nav-stacked">
+                                        <li>
+                                            <a href="Javascript:$('#centerLayout').load('{% static  url.static_html %}')">{{ url.title }}</a>
+                                        </li>
+                                    </ul>
+                                {% endif %}
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -120,11 +122,36 @@
                     </div>
                     <div id="cc" class="panel-collapse collapse ">
                         <div class="panel-body">
-                            <!--通过load方法加载轮播图管理的页面-->
-                            <ul class="nav nav-pills nav-stacked">
-                                <li>
-                                    <a href="Javascript:$('#centerLayout').load('{% static "static_html/banner.html" %}')" style="font-weight: bold">轮播图列表</a></li>
-                            </ul>
+                            {% for url in request.session.menu_list %}
+                                {% if url.category == "banner" %}
+                                    <ul class="nav nav-pills nav-stacked">
+                                        <li>
+                                            <a href="Javascript:$('#centerLayout').load('{% static  url.static_html %}')">{{ url.title }}</a>
+                                        </li>
+                                    </ul>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <!--管理员管理-->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <a href="#gg" data-toggle="collapse" data-parent="#accordion"><h4>管理员管理</h4></a>
+                        </div>
+                    </div>
+                    <div id="gg" class="panel-collapse collapse ">
+                        <div class="panel-body">
+                            {% for url in request.session.menu_list %}
+                                {% if url.category == "admin" %}
+                                    <ul class="nav nav-pills nav-stacked">
+                                        <li>
+                                            <a href="Javascript:$('#centerLayout').load('{% static  url.static_html %}')">{{ url.title }}</a>
+                                        </li>
+                                    </ul>
+                                {% endif %}
+                            {% endfor %}
                         </div>
                     </div>
                 </div>

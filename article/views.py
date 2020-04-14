@@ -1,7 +1,7 @@
 import json
 import os
 from django.core.paginator import Paginator
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse
 from django.views.decorators.clickjacking import xframe_options_sameorigin
 from django.views.decorators.csrf import csrf_exempt
 
@@ -24,19 +24,23 @@ def html(request):  # 页面
     row = request.GET.get('rows')
     page = request.GET.get('page', 1)
     pgtor = Paginator(Article.objects.all(), per_page=row)
-    pg = pgtor.page(page)
+    page_num = pgtor.num_pages  # 获取总页面数
+    # 判断获取的当前页数是否大于总页数，如果大于总页数则将总页数赋值给当前页数
+    if int(page) > page_num:
+        page = page_num
+    page_obj = pgtor.page(page).object_list
     data = {
         'page': page,
         'total': pgtor.num_pages,
         'records': pgtor.count,
-        'rows': list(pg)
+        'rows': list(page_obj)
     }
     json_str = json.dumps(data, default=my_default)
     return HttpResponse(json_str)
 
 
 @csrf_exempt  # 解决csrf
-def edit(request):   # 删除
+def edit(request):  # 删除
     option = request.POST.get("oper")
     id = request.POST.get("id")
     if option == "del":
@@ -102,3 +106,21 @@ def save(request):  # 保存逻辑
     print(category, title, content)
     return HttpResponse("保存成功")
 
+
+def editt(request):   # 修改
+    id = request.GET.get("id")
+    print(id)
+    category = request.GET.get('category')  # 状态
+    title = request.GET.get('title')
+    content = request.GET.get('content')
+    print(category, title, content)
+    art = Article.objects.get(pk=id)
+    if category == '1':
+        category = 1
+    else:
+        category = 0
+    art.status = category
+    art.title = title
+    art.content = content
+    art.save()
+    return HttpResponse("保存成功")

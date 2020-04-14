@@ -36,9 +36,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home',
-    'banner',
     'user',
+    'album',
+    'banner',
     'article',
+    'rbac',
 ]
 
 MIDDLEWARE = [
@@ -119,8 +121,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
+API_KEY = "40d6180426417bfc57d0744a362dc108"
+
+PERMISSION_LIST = "3ffee33ed4e4bf"
+MENU_LIST = "menu_list"
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static/'),)
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/'), os.path.join(BASE_DIR, 'pics')]
+MEDIA_ROOT = os.path.join(BASE_DIR, 'pics')
 
-API_KEY = "40d6180426417bfc57d0744a362dc108"

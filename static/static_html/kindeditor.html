@@ -91,6 +91,29 @@
                 this.sync()
             }
         });
+        $("#modal_footer").html('<button type="button" class="btn btn-primary" onclick="editt()" id="i1" value='+id+'>提交</button> ' +
+            '<button class="btn btn-warning" data-dismiss="modal">取消</button>')
+    }
+
+    //修改
+     function editt() {
+        var id = $("#i1").val();
+        $.ajax({
+            url: "/article/editt/",
+            type: 'get',
+            datatype: 'json',
+            data: $("#addArticleFrom").serialize()+'&id='+id,
+            success: function (data) {
+                // 根据返回值做对应的处理  例如：刷新表格  关闭模态框
+                if (data == "保存成功"){
+                    $('#myModal').modal('hide');
+                    $('#articleTable').trigger("reloadGrid");
+                }else {
+                    alert("服务器异常，保存失败！");
+                    $('#myModal').modal('hide');
+                }
+            }
+        })
     }
 
     //删除
