@@ -2,11 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c476a24-9e78-416b-a9c5-8e4d3d9e4be1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/album/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/album/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/album/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/album/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/album/migrations/0002_auto_20200413_2049.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/album/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/album/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/album/tests.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/album/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/album/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/migrations/0002_auto_20200414_2322.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/migrations/0003_auto_20200414_2334.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pics/11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pics/7_EnliUNM.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/rbac/__init__.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/rbac/admin.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/rbac/apps.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/rbac/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rbac/migrations/0002_auto_20200414_2225.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/rbac/migrations/__init__.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/rbac/models.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/rbac/service/check_permission.py" afterDir="false" />
@@ -22,7 +36,7 @@
       <change beforePath="$PROJECT_DIR$/article/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/article/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/article/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/article/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/banner/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/banner/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/migrations/0001_initial.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/static_html/banner.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/static_html/banner.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/static_html/kindeditor.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/static_html/kindeditor.html" afterDir="false" />
@@ -63,13 +77,43 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/user/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="212">
               <caret line="163" column="10" selection-start-line="163" selection-start-column="10" selection-end-line="163" selection-end-column="10" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/static_html/banner.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-690">
+              <caret line="70" column="36" lean-forward="true" selection-start-line="70" selection-start-column="36" selection-end-line="70" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/static_html/kindeditor.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="632">
+              <caret line="100" selection-start-line="100" selection-end-line="101" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/article/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1320">
+              <caret line="52" column="4" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -180,18 +224,17 @@
             <path>
               <item name="wxe_cmfz" type="b2602c69:ProjectViewProjectNode" />
               <item name="wxe_cmfz" type="462c0819:PsiDirectoryNode" />
+              <item name="article" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wxe_cmfz" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wxe_cmfz" type="462c0819:PsiDirectoryNode" />
               <item name="rbac" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="wxe_cmfz" type="b2602c69:ProjectViewProjectNode" />
               <item name="wxe_cmfz" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wxe_cmfz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wxe_cmfz" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="static_html" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="wxe_cmfz" type="b2602c69:ProjectViewProjectNode" />
@@ -363,12 +406,12 @@
       <workItem from="1586777207989" duration="12950000" />
       <workItem from="1586791554475" duration="10229000" />
       <workItem from="1586853460118" duration="17933000" />
-      <workItem from="1586872482082" duration="8157000" />
+      <workItem from="1586872482082" duration="8429000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141303000" />
+    <option name="totallyTimeSpent" value="141575000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -380,10 +423,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="7" />
+    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49865228" visible="true" weight="0.16762178" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49865228" visible="true" weight="0.16762178" />
       <window_info id="Structure" order="1" sideWeight="0.5013477" side_tool="true" weight="0.15114613" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -398,7 +441,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5007163" side_tool="true" weight="0.43396226" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.2425876" />
-      <window_info active="true" anchor="bottom" id="Run" order="12" sideWeight="0.49928367" visible="true" weight="0.43396226" />
+      <window_info anchor="bottom" id="Run" order="12" sideWeight="0.49928367" weight="0.43396226" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -620,16 +663,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/article/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-400">
-          <caret line="52" column="4" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/article/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -735,20 +768,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/static_html/banner.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2100">
-          <caret line="70" column="36" lean-forward="true" selection-start-line="70" selection-start-column="36" selection-end-line="70" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/static_html/kindeditor.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2370">
-          <caret line="100" column="16" selection-start-line="100" selection-start-column="16" selection-end-line="100" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/album/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -782,6 +801,30 @@
           <caret line="163" column="10" selection-start-line="163" selection-start-column="10" selection-end-line="163" selection-end-column="10" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/static_html/banner.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-690">
+          <caret line="70" column="36" lean-forward="true" selection-start-line="70" selection-start-column="36" selection-end-line="70" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/static_html/kindeditor.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="632">
+          <caret line="100" selection-start-line="100" selection-end-line="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/article/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1320">
+          <caret line="52" column="4" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
