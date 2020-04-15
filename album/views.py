@@ -57,7 +57,7 @@ def edit(request):
         create_date = request.POST.get('createDate')
         publish_date = request.POST.get('publishDate')
         score = request.POST.get('score')
-        cover = request.POST.get('cover')
+        cover = request.FILES.get('cover')
         Album.objects.create(title=title, status=status, author=author,
                              brief=brief, broadcast=broadcast, count=count,
                              cover=cover, create_date=create_date,
@@ -151,13 +151,12 @@ def save(request):
     title = request.POST.get("title")
     audio = request.FILES.get("audio")
     status = request.POST.get("status")
-    print(album_id, status, audio)
-    size = round(audio.size / 1024 / 1024, 2)  # 音频大小
-    size = str(size) + "MB"
+    print(title, status, audio)
+    size = str(round(audio.size / 2 ** 20, 2)) + 'MB'    # 音频大小
     audio_mp3 = MP3(audio)  # 音频时长
-    time_long = round(audio_mp3.info.length / 60, 2)
-    time_long = str(time_long) + "分"
-    Chapter.objects.create(album_id=album_id, title=title, url=audio, status=status, size=size,
+    time_long = str(round(audio_mp3.info.length / 60, 2)) + "分"
+    album = Album.objects.get(pk=int(album_id))
+    Chapter.objects.create(album_id=album, title=title, url=audio, status=status, size=size,
                            time_long=time_long, audio=audio)
     return HttpResponse("success")
 

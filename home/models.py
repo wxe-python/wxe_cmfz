@@ -22,7 +22,7 @@ class User(models.Model):  # 用户表
     sex = models.CharField(max_length=20, blank=True, null=True)  # 性别
     phone = models.CharField(max_length=20, blank=True, null=True)  # 手机号码
     password = models.CharField(max_length=20, blank=True, null=True)  # 密码
-    image = models.CharField(max_length=20, blank=True, null=True)  # 头像
+    image = models.ImageField(upload_to='pics')  # 图片路径
     address = models.CharField(max_length=20, blank=True, null=True)  # 地址
     address_item = models.CharField(max_length=50, blank=True, null=True)  # 详细地址
     signature = models.CharField(max_length=20, blank=True, null=True)  # 个人签名

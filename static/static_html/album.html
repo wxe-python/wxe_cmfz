@@ -16,6 +16,7 @@
             multiselect: true,
             subGrid: true,     // 开启二级表格的使用
             subGridRowExpanded: function (subGridId, albumId) {
+                album_id = albumId;
                 addSubGrid(subGridId, albumId);
             },
             colNames: ["编号", "标题", "分数", "作者", "播音员", "章节数", "专辑简介", "状态", "发行时间", "上传时间", "插图"],
@@ -115,7 +116,7 @@
                 },
                 {
                     name: "option", align: "center", formatter: function (cellvalue, options, rowObj) {
-                        return '<a href=\"javascript:void(0)\" onclick=\"playAudio()\" class=\"btn btn-primary\"><span class=\"glyphicon glyphicon-play\"></span>播放</a>'
+                        return "<a href=\"javascript:void(0)\" onclick=\"playAudio('" + rowObj.url + "')\" class=\"btn btn-primary\"><span class=\"glyphicon glyphicon-play\"></span> 播放</a>"
                             + '<a href=\"javascript:void(0)\" onclick="dell('+rowObj.id+')" class=\"btn btn-danger\" > 删除</a>'
                     }
                 },
@@ -152,7 +153,7 @@
             success: function (data) {
                 if (data == "success"){
                     $("#albumModal").modal('hide');
-                    $("#" + subGridTableId).trigger("reloadGrid");// 刷新jqgrid表格
+                    $("#albumModal").trigger("reloadGrid");// 刷新jqgrid表格
                 }else {
                     $("#albumModal").modal('hide');
                     alert("服务器异常，保存失败！")
@@ -166,7 +167,7 @@
     function playAudio(url) {
        // 展示播放框
         $("#playAudioDiv").modal('show');
-        $('#playAudioId').attr("src", "/static/album/" + url);
+        $('#playAudioId').attr("src", "/static/audio/" + url);
     }
 
     //二级列表删除

@@ -24,7 +24,8 @@
                 name: "image",
                 align: "center",
                 formatter: function (cellvalue, options, rowObject) {
-                    return '<img style="width: 50px;height: 30px" src="/static/img/' + cellvalue + '" alt="">';
+                    var img = "/static/" + cellvalue;
+                    return '<img style="width: 50px;height: 30px" src=' + img + ' " alt="">';
                     }
             },
             {name: "address", align: "center"},

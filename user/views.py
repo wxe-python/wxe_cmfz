@@ -181,5 +181,5 @@ def echarts(request):  # 注册趋势图
         "x": [str(now), str(day01), str(day02), str(day03), str(day04), str(day05), str(day06)],
         "y": [count1, count2, count3, count4, count5, count6, count7]
     }
-    redis.setex("data1", 24 * 3600, str(data))
+    redis.setex("data1", 24 * 60 * 60, str(data))
     return JsonResponse(data)

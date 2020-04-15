@@ -51,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'rbac.service.check_permission.CheckPermission',
 ]
 
 ROOT_URLCONF = 'wxe_cmfz.urls'
@@ -127,6 +128,7 @@ PERMISSION_LIST = "3ffee33ed4e4bf"
 MENU_LIST = "menu_list"
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/'), os.path.join(BASE_DIR, 'pics')]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'pics')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/'), MEDIA_ROOT]
+
 
